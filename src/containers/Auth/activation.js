@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import {authenticate} from '../../helper/auth';
 import jwt from 'jsonwebtoken';
 
 const Activation = ({match}) => {
