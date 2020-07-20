@@ -1,0 +1,9 @@
+.registerForm {
+    text-align: center;
+}
+
+.registerForm input {
+    width: 500px;
+    height: 28px;
+    font-size: 22px;
+}

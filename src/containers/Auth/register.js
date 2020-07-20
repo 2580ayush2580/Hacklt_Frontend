@@ -1,5 +1,9 @@
 import React,{useState} from 'react';
 import axios from 'axios';
+import './register.css';
+import ecllipse from '../../assets/Ellipse.svg';
+import register from '../../assets/register.svg';
+import Auxes from '../../Auxes/auxes'
 
 const Register = () => {
 
@@ -57,19 +61,42 @@ const Register = () => {
     };
     
     return (
-        <div>
-        <form action="" onSubmit={handleSubmit}>
-            <input type="text" onChange={handleChange('name')}/>
-            <br/>
-            <input type="email" onChange={handleChange('email')}/>
-            <br/>
-            <input type="password" onChange={handleChange('password1')}/>
-            <br/>
-            <input type="password" onChange={handleChange('password2')}/>
-            <br/>
-            <button type='submit' >{textChange}</button>
-        </form>
+      
+       
+        <Auxes>
+       <div className="navbar">
+        <img src={ecllipse} alt="" className="img1" />
+        <img src={ecllipse} alt="" className="img2" />
+       </div>
+        <div  className="showcase">
+            <div className="form" >
+              <form action="" onSubmit={handleSubmit}>
+              <h1>SIGN UP</h1>
+              <br/>
+              <input type="text" onChange={handleChange('name')} placeholder="Name" />
+              <br/>
+              <input type="email" onChange={handleChange('email')} placeholder="Email" />
+              <br/>
+              <input type="password" onChange={handleChange('password1')} placeholder="Password" />
+              <br/>
+              <input type="password" onChange={handleChange('password2')} placeholder="Confirm Password" />
+              <br/>
+              <button type='submit' >{textChange}</button>
+              <br/>
+              or
+              <br/>
+              <button >Login</button>
+              </form>
+            </div>
+            <div>
+            <img src={register} alt="" className="img4" />
+            </div>
         </div>
+        <div className="footer">
+        <img src={ecllipse} alt="" className="img3" /> 
+        </div>
+        </Auxes>
+      
     );
 };
 

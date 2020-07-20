@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './register.css';
+import ecllipse from '../../assets/Ellipse.svg';
+import register from '../../assets/register.svg';
+import Auxes from '../../Auxes/auxes'
 
 const ForgetPassword = ({history}) => {
   const [formData, setFormData] = useState({
@@ -36,14 +40,29 @@ const ForgetPassword = ({history}) => {
     }
   };
   return (
-    <div>
-    <form action="" onSubmit={handleSubmit}>
-    <br/>
-    <input type="email" onChange={handleChange('email')}/>
-    <br/>
-    <button type='submit' >{textChange}</button>
-    </form>
-</div>
+  <Auxes>
+       <div className="navbar">
+        <img src={ecllipse} alt="" className="img1" />
+        <img src={ecllipse} alt="" className="img2" />
+       </div>
+        <div  className="showcase">
+            <div className="form" >
+              <form action="" onSubmit={handleSubmit}>
+              <h1>Forget Password</h1>
+              <br/>
+              <input type="email" onChange={handleChange('email')} placeholder="Email" />
+              <br/>
+              <button type='submit' >{textChange}</button>
+              </form>
+            </div>
+            <div>
+            <img src={register} alt="" className="img4" />
+            </div>
+        </div>
+        <div className="footer">
+        <img src={ecllipse} alt="" className="img3" /> 
+        </div>
+        </Auxes>
   );
 };
 

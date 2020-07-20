@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.homeshowcase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5rem;
+}
+
+.homeshowcase img {
+    width: 400px;
+}
+
+.homeshowcase .homeheading {
+    text-align: right;
+    color: #8c59ff;
+}

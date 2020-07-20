@@ -1,5 +1,10 @@
 import React,{useState} from 'react';
 import axios from 'axios';
+// import Navbar from '../Navbar/navbar'
+import './form.css';
+import ecllipse from '../../assets/Ellipse.svg';
+import register from '../../assets/register.svg';
+import Auxes from '../../Auxes/auxes'
 
 const HackathonForm = () => {
 
@@ -11,10 +16,11 @@ const HackathonForm = () => {
         startDate:"",
         maxTeamSize:'',
         endDate:'',
-        textChange:'Submit'
+        textChange:'Submit',
+        owner:JSON.parse(localStorage.getItem('user'))._id
     });
 
-    const { nameOfHackathon, aboutTheHackathon, problemStatement, prizes, startDate, maxTeamSize, endDate, textChange } = formData;
+    const { nameOfHackathon, aboutTheHackathon, problemStatement, prizes, startDate, maxTeamSize, endDate, textChange, owner } = formData;
     const handleChange = text => e => {
         setFormData({...formData, [text]: e.target.value });
     };
@@ -31,7 +37,8 @@ const HackathonForm = () => {
                         startDate,
                         endDate,
                         maxTeamSize,
-                        prizes
+                        prizes,
+                        owner
                     })
                     .then(res => {
                         setFormData({
@@ -68,25 +75,41 @@ const HackathonForm = () => {
     };
     
     return (
-        <div>
-        <form action="" onSubmit={handleSubmit}>
-            <input type="text" onChange={handleChange('nameOfHackathon')}/>
+        <Auxes>
+       <div className="navbar">
+        <img src={ecllipse} alt="" className="img1" />
+        <img src={ecllipse} alt="" className="img2" />
+       </div>
+        <div  className="showcase">
+            <div className="form" >
+            <form action="" onSubmit={handleSubmit}>
+            <h1></h1>
+            <input type="text" onChange={handleChange('nameOfHackathon')} placeholder="Name Of Hakathon"/>
             <br/>
-            <input type="text" onChange={handleChange('aboutTheHackathon')}/>
+            <input type="text" onChange={handleChange('aboutTheHackathon')} placeholder="About The Hakathon"/>
             <br/>
-            <input type="text" onChange={handleChange('problemStatement')}/>
+            <input type="text" onChange={handleChange('problemStatement')} placeholder="Problem Statement"/>
             <br/>
-            <input type="text" onChange={handleChange('startDate')}/>
+            <input type="date" onChange={handleChange('startDate')} placeholder="Starting Date Of Hakathon"/>
             <br/>
-            <input type="text" onChange={handleChange('endDate')}/>
+            <input type="date" onChange={handleChange('endDate')} placeholder="End Date Of Hakathon"/>
             <br/>
-            <input type="text" onChange={handleChange('maxTeamSize')}/>
+            <input type="text" onChange={handleChange('maxTeamSize')} placeholder="Team Size"/>
             <br/>
-            <input type="text" onChange={handleChange('prizes')}/>
+            <input type="text" onChange={handleChange('prizes')}  placeholder="Prizes"/>
             <br/>
             <button type='submit' >{textChange}</button>
         </form>
+            </div>
+            <div>
+            <img src={register} alt="" className="img4" />
+            </div>
         </div>
+        <div className="footer">
+        <img src={ecllipse} alt="" className="img3" />
+        </div>
+        </Auxes>
+       
     );
 };
 

@@ -1,0 +1,15 @@
+.HomeDataPara {
+    border: 2px solid #8c59ff;
+    min-height: 100px;
+    box-sizing: border-box;
+    margin: 1rem 5rem;
+    border-radius: 15px;
+    padding: 1rem;
+    color: rgb(97, 91, 91);
+}
+
+.HomeDataPara:hover {
+    background-color: #8c59ff;
+    color: #ffffff;
+    box-shadow: 0 2px 3px #ccc;
+}
