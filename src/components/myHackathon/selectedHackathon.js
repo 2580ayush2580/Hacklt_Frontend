@@ -1,9 +1,7 @@
 import React,{Component} from 'react'
-import Navbar from '../../../containers/Navbar/navbar'
-import './selectedList.css'
+import Navbar from '../../containers/Navbar/navbar'
 import axios from 'axios'
 import {withRouter} from 'react-router-dom';
-import RegisterForm from '../../../containers/Hackathon/regstrations'
 
 class SelecteddataPara extends Component {
 
@@ -17,30 +15,45 @@ class SelecteddataPara extends Component {
         endDate:null,
         teamSize:null,
         sponsors:null,
-        location:null,
-        Rules:null,
-        Instructions:null,
         prizes:null,
         Judges:null,
         email:null,
-        show:null
+        show:null,
+        link:null,
+        hackathonId:null,
+        userEmail:null,
+        location:null,
+        Rules:null,
+        Instructions:null,
+        Name:null
     }
-    showHandeler=()=>{
-        this.setState({
-            show:true
-        })
-    }
-
+  
     componentDidMount () {
         console.log(this.props);
         this.loadData();
     }
-
-    // componentDidUpdate() {
-    //     console.log(this.props);
-    //     this.loadData();
-    // }
-
+    submitHandeler=(e)=>{
+        e.preventDefault();
+        if(this.state.link){
+            axios.post('http://localhost:5000/api/hackathon/submit',{
+                link:this.state.link,
+                hackathonId:this.props.match.params.id,
+                userEmail:this.state.userEmail,
+                name:this.state.Name
+            })
+            .then(response=>{
+                // console.log(response)
+            })
+        }else{
+            console.log("Fill the field")
+        }
+    }
+    handleChange = text => (e) =>{
+        this.setState({
+           [text]:e.target.value
+        })
+        // console.log(e.target.value)
+    }
     loadData () {
                 axios.get( 'http://localhost:5000/api/hackathonLists/name/' + this.props.match.params.id )
                 .then((response)=>{
@@ -66,7 +79,7 @@ class SelecteddataPara extends Component {
         return(
            <div>
                 <Navbar />
-                <div className='selectedListDataPara' >
+                 <div className='selectedListDataPara' >
                 <h4 style={{
                     marginBottom:"10px"
                 }} >{this.state.nameOfHackathon}</h4>
@@ -88,9 +101,22 @@ class SelecteddataPara extends Component {
                 <p><i class="fas fa-award"></i> Prize: {this.state.prizes}</p>
                 <p><i class="fas fa-location-arrow"></i> Location: {this.state.Location}</p>
                 <p><i class="fas fa-envelope"></i> Contact us: {this.state.email}</p>
-                <button onClick={this.showHandeler} className="btn">Participate</button>
+                <form action="" onSubmit={(e)=>this.submitHandeler(e)} >
+                <label style={{
+                }}>Submit Your Project:</label><br/>
+                   <label htmlFor="">*Your Name</label><br/>
+                   <input style={{padding:"0px 5px",borderRadius:"2px"}} onChange={this.handleChange('Name')} type="text" placeholder="Name" />
+                   <br/>
+                   <label style={{marginTop:"15px"}} htmlFor="">*Email</label><br/>
+                   <input style={{padding:"0px 5px",borderRadius:"2px"}} onChange={this.handleChange('userEmail')} type="email" placeholder="Email" />
+                   <br/>
+                   <label style={{marginTop:"15px"}} htmlFor="">*Github Link</label><br/>
+                   <input style={{padding:"0px 5px",borderRadius:"2px"}} onChange={this.handleChange('link')} type="text" placeholder="GithubLink" />
+                   <br/>
+                   <button style={{marginTop:"15px"}} type="submit" className="btn" > Submit</button>
+               </form>
                </div>
-               {this.state.show?<RegisterForm  id={ this.state.id} data={this.state.data} />:null}
+             
            </div>
     )
     }

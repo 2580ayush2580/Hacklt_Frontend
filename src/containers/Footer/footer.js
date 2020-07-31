@@ -4,10 +4,9 @@ import ecllipse from '../../assets/Ellipse.svg';
 
 const Footer = () => {
     return (
-        <div className="footer">
-        <img src={ecllipse} alt="" className="img1" />
-        <img src={ecllipse} alt="" className="img2" />
-       </div>
+        <div class="footer-bottom">
+		Copyright © 2020, All Rights Reserved
+	   </div>
     );
 }
 

@@ -1,6 +1,5 @@
 import * as actionTypes from './actionTypes'
 import axios from 'axios'
-import { render } from 'react-dom'
 
 export const fetchDataSuccess = (data) => {
     return{

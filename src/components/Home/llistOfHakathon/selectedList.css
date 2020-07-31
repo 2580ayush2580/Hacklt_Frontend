@@ -1,6 +1,12 @@
 .selectedListDataPara {
-    margin: 1rem 4rem;
-    border: 2px solid grey;
+    border: 2px solid;
+    min-height: 100px;
+    box-sizing: border-box;
     border-radius: 15px;
     padding: 1rem;
+    color: rgb(97, 91, 91);
+    font-weight: normal;
+    min-width: 320px;
+    max-width: 1200px;
+    margin: 1rem auto;
 }

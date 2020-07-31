@@ -64,7 +64,7 @@ const Register = () => {
       
        
         <Auxes>
-       <div className="navbar">
+       <div className="navbar7">
         <img src={ecllipse} alt="" className="img1" />
         <img src={ecllipse} alt="" className="img2" />
        </div>
@@ -85,8 +85,8 @@ const Register = () => {
               <br/>
               or
               <br/>
-              <button >Login</button>
               </form>
+              <a href="/login"><button>Login</button></a>
             </div>
             <div>
             <img src={register} alt="" className="img4" />

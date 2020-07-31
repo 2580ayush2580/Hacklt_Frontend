@@ -1,18 +1,33 @@
 import React from 'react'
-import './dataPara.css'
+// import './dataPara.css'
 
 const dataPara = (props)=>{
 
     
     return(
-            <div className='DataPara' onClick={props.clicked} >
-            <h1 style={{
+            <div>
+            <div onClick={props.clicked} className='HomeDataPara' onClick={props.clicked} >
+            <h3 style={{
+                marginBottom:"10px"
+            }} >{props.nameOfHackathon}</h3>
+            <p>{props.aboutTheHackathon.slice(0,270)+" ..."}</p>
+            
+            {/* <h1 style={{
                 textAlign:"center"
             }} >HACKLT</h1>
             <h1>{props.nameOfHackathon}</h1>
             <h2>{props.startDate}</h2>
             <h3>{props.maxTeamSize}</h3>
-            <p>{props.id}</p>
+            <p>{props.id}</p> */}
+            </div>
+            {/* <h1 style={{
+                textAlign:"center"
+            }} >HACKLT</h1>
+            <h1></h1>
+            <h2>{props.startDate}</h2>
+            <h3>{props.maxTeamSize}</h3>
+            <p>{props.id}</p> */}
+
             </div>
     )
 }

@@ -1,18 +1,22 @@
-.navbar .img1 {
+.showcase a {
+    font-size: 16px;
+}
+
+.navbar7 .img1 {
     height: 75px;
     position: relative;
     top: -38px;
     left: -38px;
 }
 
-.navbar .img2 {
+.navbar7 .img2 {
     height: 200px;
     position: relative;
     top: -45px;
     right: -50px;
 }
 
-.navbar {
+.navbar7 {
     width: 100%;
     height: 100px;
     display: flex;
@@ -93,19 +97,22 @@
 }
 
 @media (min-width:319px)and (max-width:374px) {
-    .navbar .img1 {
+    .showcase a {
+        font-size: 10px;
+    }
+    .navbar7 .img1 {
         height: 75px;
         position: relative;
         top: -38px;
         left: -38px;
     }
-    .navbar .img2 {
+    .navbar7 .img2 {
         height: 200px;
         position: relative;
         top: -45px;
         right: -50px;
     }
-    .navbar {
+    .navbar7 {
         width: 100%;
         height: 100px;
         display: flex;
@@ -177,19 +184,22 @@
 }
 
 @media (min-width:375px)and (max-width:500px) {
-    .navbar .img1 {
+    .showcase a {
+        font-size: 11px;
+    }
+    .navbar7 .img1 {
         height: 75px;
         position: relative;
         top: -38px;
         left: -38px;
     }
-    .navbar .img2 {
+    .navbar7 .img2 {
         height: 200px;
         position: relative;
         top: -45px;
         right: -50px;
     }
-    .navbar {
+    .navbar7 {
         width: 100%;
         height: 100px;
         display: flex;
@@ -261,19 +271,22 @@
 }
 
 @media (min-width:501px)and (max-width:767px) {
-    .navbar .img1 {
+    .showcase a {
+        font-size: 12px;
+    }
+    .navbar7 .img1 {
         height: 75px;
         position: relative;
         top: -38px;
         left: -38px;
     }
-    .navbar .img2 {
+    .navbar7 .img2 {
         height: 200px;
         position: relative;
         top: -45px;
         right: -50px;
     }
-    .navbar {
+    .navbar7 {
         width: 100%;
         height: 100px;
         display: flex;
@@ -345,19 +358,19 @@
 }
 
 @media (min-width:768px)and (max-width:899px) {
-    .navbar .img1 {
+    .navbar7 .img1 {
         height: 150px;
         position: relative;
         top: -75px;
         left: -75px;
     }
-    .navbar .img2 {
+    .navbar7 .img2 {
         height: 400px;
         position: relative;
         top: -90px;
         right: -100px;
     }
-    .navbar {
+    .navbar7 {
         width: 100%;
         height: 200px;
         display: flex;
@@ -428,19 +441,19 @@
 }
 
 @media (min-width:900px)and (max-width:1200px) {
-    .navbar .img1 {
+    .navbar7 .img1 {
         height: 150px;
         position: relative;
         top: -75px;
         left: -75px;
     }
-    .navbar .img2 {
+    .navbar7 .img2 {
         height: 400px;
         position: relative;
         top: -90px;
         right: -100px;
     }
-    .navbar {
+    .navbar7 {
         width: 100%;
         height: 200px;
         display: flex;
@@ -511,19 +524,19 @@
 }
 
 @media(min-width:1201px) and (max-width:1440px) {
-    .navbar .img1 {
+    .navbar7 .img1 {
         height: 150px;
         position: relative;
         top: -75px;
         left: -75px;
     }
-    .navbar .img2 {
+    .navbar7 .img2 {
         height: 400px;
         position: relative;
         top: -90px;
         right: -100px;
     }
-    .navbar {
+    .navbar7 {
         width: 100%;
         height: 200px;
         display: flex;
@@ -594,19 +607,19 @@
 }
 
 @media(min-width:1441px) {
-    .navbar .img1 {
+    .navbar7 .img1 {
         height: 150px;
         position: relative;
         top: -75px;
         left: -75px;
     }
-    .navbar .img2 {
+    .navbar7 .img2 {
         height: 400px;
         position: relative;
         top: -90px;
         right: -100px;
     }
-    .navbar {
+    .navbar7 {
         width: 100%;
         height: 200px;
         display: flex;

@@ -3,21 +3,24 @@
  import Auxes from '../../Auxes/auxes';
  import group131 from '../../assets/Group131.svg';
  import './home.css';
+ import Footer from '../../containers/Footer/footer'
  import ListOfHackathons from './llistOfHakathon/list';
  
  const Home = () => {
      return (
          <Auxes>
              <Navbar />
-             <div><div className="homeshowcase">
+             {/* <div><div className="homeshowcase">
              <img src={group131} alt=""/>
              <div className="homeheading" >
-             <h1>Wanna Develop?<br/>Try Hacklt</h1>
+             <h2>Wanna Develop?<br/>Try Hacklt</h2>
              <br/>
-             <h2>Explore new hackathon daily to boost your development skills</h2>
+             <h3>Explore new hackathon daily to boost your development skills</h3>
              </div>
-             </div></div>
+             </div></div> */}
+
              <ListOfHackathons />
+             <Footer/>
          </Auxes>
      );
  }

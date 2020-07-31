@@ -6,11 +6,12 @@ const dataPara = (props)=>{
     
     return(
            <div>
-                <div className='HomeDataPara' onClick={props.clicked} >
-            <h1 style={{
+            <div className='HomeDataPara' onClick={props.clicked} >
+            <h3 style={{
                 marginBottom:"10px"
-            }} >{props.nameOfHackathon}</h1>
-            <h2>{props.aboutTheHackathon}</h2>
+            }} >{props.nameOfHackathon}</h3>
+            <p>{props.aboutTheHackathon.slice(0,270)+" ..."}</p>
+            
             {/* <h1 style={{
                 textAlign:"center"
             }} >HACKLT</h1>

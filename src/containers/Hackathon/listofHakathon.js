@@ -1,9 +1,11 @@
 import React , {Component} from 'react';
 import { connect } from 'react-redux'
-import axios from 'axios';
 import Datapara from './dataPara'
 import * as actions from '../../store/actions/fetchData'
 import SelectDataPara from './SelectedDatapara'
+import Navbar from '../../containers/Navbar/navbar'
+import Footer from '../../containers/Footer/footer'
+import Form from './form'
 class ListofHakathon extends Component{
     state = {
         owner:JSON.parse(localStorage.getItem('user'))._id,
@@ -15,30 +17,36 @@ class ListofHakathon extends Component{
 
     selectHandeler = (id)=>{
         this.setState({
-            id:id
+            id:id 
         })
-      
+        this.props.history.push('/createHackathon/myHackathon/'+id)
     }
 
    render(){
 
         let list = this.props.list;
-        let list2=null;
-        list2 = list.map(arr=>{
-          return <Datapara
-              nameOfHackathon={arr.nameOfHackathon}
-              startDate={arr.startDate}
-              maxTeamSize={arr.maxTeamSize}
-              key={arr._id}
-              id={arr._id}
-              clicked={()=>this.selectHandeler(arr._id)}
-           />
-        })
+        let list2=<div style={{textAlign:"center"}} >No Past Hackathons!</div>;
+        if(list.length!=0){
+            list2 = list.map(arr=>{
+                return <Datapara
+                    nameOfHackathon={arr.nameOfHackathon}
+                    aboutTheHackathon={arr.aboutTheHackathon}
+                    startDate={arr.startDate}
+                    maxTeamSize={arr.maxTeamSize}
+                    key={arr._id}
+                    id={arr._id}
+                    clicked={()=>this.selectHandeler(arr._id)}
+                 />
+              })
+        }
     return (
         <div>
-        <Datapara />
+        <Navbar />
+        <Form />
+        <div style={{textAlign:"center",marginTop:'10px'}} ><h5><u>Past Hackathons</u></h5></div>
         {list2}
-        <SelectDataPara id={this.state.id} />
+        <Footer />
+
         </div>
     );
    }

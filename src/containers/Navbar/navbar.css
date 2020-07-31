@@ -9,20 +9,22 @@ a {
     text-decoration: none;
 }
 
-.navbar1 {
-    font-size: 18px;
+.navbar {
+    /* font-size: 18px;
     font-weight: bold;
-    height: 100px;
-    display: flex;
+    height: 100px; */
+    /* display: flex; */
     background: #8c59ff;
     color: #fff;
-    justify-content: space-between;
+    /* justify-content: space-between;
     align-items: center;
     z-index: 1;
     padding: 1rem 4rem;
-    opacity: 0.9;
+    opacity: 0.9; */
 }
 
+
+/* 
 .navbar1 ul {
     display: flex;
     align-items: center;
@@ -52,16 +54,9 @@ a {
 .list li {
     padding: 0.5rem 0;
     border-bottom: #444 dotted 1px;
-}
+} */
 
-.navbar1 button {
-    height: 38px;
-    background-color: white;
+.navbar .btn {
     color: #8c59ff;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 10px;
-    margin-top: 2px;
-    padding: 2px 2px;
-    outline: none;
+    background-color: #ffffff;
 }

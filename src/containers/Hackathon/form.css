@@ -1,677 +1,112 @@
-.navbar .img1 {
-    height: 75px;
-    position: relative;
-    top: -38px;
-    left: -38px;
+header {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 20px;
 }
 
-.navbar .img2 {
-    height: 200px;
-    position: relative;
-    top: -45px;
-    right: -50px;
-}
-
-.navbar {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
-}
-
-.footer {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    overflow: hidden;
-}
-
-.footer .img3 {
-    position: relative;
-    height: 150px;
-    left: -75px;
-    bottom: -75px;
-}
-
-.showcase {
-    height: 200px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    border-bottom: 5px solid black;
-}
-
-.showcase .img4 {
-    margin-left: 20px;
-    height: 200px;
-    width: 200px;
-}
-
-.showcase .form {
-    margin-right: 15px;
-    margin-left: 10px;
+#form-outer {
+    background-color: rgb(250, 250, 250);
+    margin: 0 auto;
+    border-radius: 4px;
+    width: 75%;
+    max-width: 900px;
+    padding: 10px;
+    padding-top: 20px;
     text-align: center;
+    min-width: 320px;
+    margin-top: 20px;
 }
 
-.showcase input {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100px;
-    margin: 0px 0 3px 0;
-    height: 10px;
-    border: none;
-    border-bottom: solid grey 2px;
-    outline: none;
-    font-size: 14px;
-}
-
-.showcase h1 {
-    color: rgb(109, 107, 107);
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 0px;
-    margin-bottom: 0px;
+#description {
     font-size: 20px;
 }
 
-.showcase button {
-    width: 100px;
-    height: 24px;
-    background-color: #8c59ff;
+.labels {
+    display: inline-block;
+    text-align: right;
+    width: 40%;
+    padding: 5px;
+    vertical-align: top;
+    margin-top: 10px;
+}
+
+.rightTab {
+    display: inline-block;
+    text-align: left;
+    width: 48%;
+    vertical-align: middle;
+}
+
+.input-field {
+    height: 30px;
+    width: 280px;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
+}
+
+#userAge {
+    width: 40px;
+}
+
+.userRatings,
+input[type="checkbox"] {
+    float: left;
+    margin-right: 5px;
+}
+
+.submit {
+    background-color: #59ace0;
+    border-radius: 4px;
     color: white;
-    font-size: 14px;
-    border-radius: 5px;
-    margin-top: 2px;
-    padding: 2px;
-    outline: none;
+    font-size: 1em;
+    height: 40px;
+    width: 96px;
+    margin: 10px;
+    border: 0px solid;
 }
 
-.showcase h4 {
-    margin: 0px;
+.dropdown {
+    height: 30px;
+    width: 140px;
+    padding: 5px;
+    margin: 5px 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 2px;
 }
 
-@media (min-width:319px)and (max-width:374px) {
-    .navbar .img1 {
-        height: 75px;
-        position: relative;
-        top: -38px;
-        left: -38px;
+.radio,
+.checkbox {
+    position: relative;
+    left: -43px;
+    margin-left: 10px;
+    display: block;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 833px) {
+    .input-field {
+        width: 80%;
     }
-    .navbar .img2 {
-        height: 200px;
-        position: relative;
-        top: -45px;
-        right: -50px;
+    select {
+        width: 90%;
     }
-    .navbar {
+}
+
+@media screen and (max-width: 520px) {
+    .labels {
         width: 100%;
-        height: 100px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
+        text-align: left;
     }
-    .footer {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        overflow: hidden;
+    .rightTab {
+        width: 80%;
+        float: left;
     }
-    .footer .img3 {
-        position: relative;
-        height: 150px;
-        left: -75px;
-        bottom: -75px;
-    }
-    .showcase {
-        height: 200px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        border-bottom: 5px solid black;
-    }
-    .showcase .img4 {
-        margin-left: 20px;
-        height: 180px;
-        width: 180px;
-    }
-    .showcase .form {
-        margin-right: 15px;
-        margin-left: 10px;
-        text-align: center;
-    }
-    .showcase input {
-        font-family: Arial, Helvetica, sans-serif;
-        width: 100px;
-        margin: 0px 0 3px 0;
-        height: 10px;
-        border: none;
-        border-bottom: solid grey 2px;
-        outline: none;
-        font-size: 14px;
-    }
-    .showcase h1 {
-        color: rgb(109, 107, 107);
-        font-family: Arial, Helvetica, sans-serif;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        font-size: 20px;
-    }
-    .showcase button {
-        width: 100px;
-        height: 24px;
-        background-color: #8c59ff;
-        color: white;
-        font-size: 14px;
-        border-radius: 5px;
-        margin-top: 2px;
-        padding: 2px;
-    }
-    .showcase h4 {
-        margin: 0px;
-    }
-}
-
-@media (min-width:375px)and (max-width:500px) {
-    .navbar .img1 {
-        height: 75px;
-        position: relative;
-        top: -38px;
-        left: -38px;
-    }
-    .navbar .img2 {
-        height: 200px;
-        position: relative;
-        top: -45px;
-        right: -50px;
-    }
-    .navbar {
+    .input-field {
         width: 100%;
-        height: 100px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
     }
-    .footer {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        overflow: hidden;
-    }
-    .footer .img3 {
-        position: relative;
-        height: 150px;
-        left: -75px;
-        bottom: -75px;
-    }
-    .showcase {
-        height: 200px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        border-bottom: 5px solid black;
-    }
-    .showcase .img4 {
-        margin-left: 20px;
-        height: 200px;
-        width: 200px;
-    }
-    .showcase .form {
-        margin-right: 15px;
-        margin-left: 10px;
-        text-align: center;
-    }
-    .showcase input {
-        font-family: Arial, Helvetica, sans-serif;
-        width: 100px;
-        margin: 0px 0 3px 0;
-        height: 10px;
-        border: none;
-        border-bottom: solid grey 2px;
-        outline: none;
-        font-size: 14px;
-    }
-    .showcase h1 {
-        color: rgb(109, 107, 107);
-        font-family: Arial, Helvetica, sans-serif;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        font-size: 20px;
-    }
-    .showcase button {
-        width: 100px;
-        height: 24px;
-        background-color: #8c59ff;
-        color: white;
-        font-size: 14px;
-        border-radius: 5px;
-        margin-top: 2px;
-        padding: 2px;
-    }
-    .showcase h4 {
-        margin: 0px;
-    }
-}
-
-@media (min-width:501px)and (max-width:767px) {
-    .navbar .img1 {
-        height: 75px;
-        position: relative;
-        top: -38px;
-        left: -38px;
-    }
-    .navbar .img2 {
-        height: 200px;
-        position: relative;
-        top: -45px;
-        right: -50px;
-    }
-    .navbar {
+    select {
         width: 100%;
-        height: 100px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
-    }
-    .footer {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        overflow: hidden;
-    }
-    .footer .img3 {
-        position: relative;
-        height: 150px;
-        left: -75px;
-        bottom: -75px;
-    }
-    .showcase {
-        height: 250px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        border-bottom: 5px solid black;
-    }
-    .showcase .img4 {
-        margin-left: 20px;
-        height: 250px;
-        width: 250px;
-    }
-    .showcase .form {
-        margin-right: 15px;
-        margin-left: 10px;
-        text-align: center;
-    }
-    .showcase input {
-        font-family: Arial, Helvetica, sans-serif;
-        width: 130px;
-        margin: 0px 0 8px 0;
-        height: 10px;
-        border: none;
-        border-bottom: solid grey 2px;
-        outline: none;
-        font-size: 14px;
-    }
-    .showcase h1 {
-        color: rgb(109, 107, 107);
-        font-family: Arial, Helvetica, sans-serif;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        font-size: 20px;
-    }
-    .showcase button {
-        width: 100px;
-        height: 28px;
-        background-color: #8c59ff;
-        color: white;
-        font-size: 14px;
-        border-radius: 5px;
-        margin-top: 2px;
-        padding: 2px;
-    }
-    .showcase h4 {
-        margin: 0px;
-    }
-}
-
-@media (min-width:768px)and (max-width:899px) {
-    .navbar .img1 {
-        height: 150px;
-        position: relative;
-        top: -75px;
-        left: -75px;
-    }
-    .navbar .img2 {
-        height: 400px;
-        position: relative;
-        top: -90px;
-        right: -100px;
-    }
-    .navbar {
-        width: 100%;
-        height: 200px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
-    }
-    .footer {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        overflow: hidden;
-    }
-    .footer .img3 {
-        position: relative;
-        height: 300px;
-        left: -150px;
-        bottom: -150px;
-    }
-    .showcase {
-        height: 300px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        border-bottom: 5px solid black;
-    }
-    .showcase .img4 {
-        margin-left: 50px;
-        height: 300px;
-        width: 300px;
-    }
-    .showcase .form {
-        margin-right: 30px;
-        margin-left: 10px;
-        text-align: center;
-    }
-    .showcase input {
-        font-family: Arial, Helvetica, sans-serif;
-        width: 200px;
-        margin: 0px 0 7px 0;
-        height: 25px;
-        border: none;
-        border-bottom: solid grey 2px;
-        outline: none;
-        font-size: 18px;
-    }
-    .showcase h1 {
-        color: rgb(109, 107, 107);
-        font-family: Arial, Helvetica, sans-serif;
-        margin-top: 5px;
-        margin-bottom: 0px;
-        font-size: 24px;
-    }
-    .showcase button {
-        width: 200px;
-        height: 35px;
-        background-color: #8c59ff;
-        color: white;
-        font-size: 20px;
-        border-radius: 10px;
-        margin-top: 5px;
-    }
-    .showcase h4 {
-        margin: 0px;
-    }
-}
-
-@media (min-width:900px)and (max-width:1200px) {
-    .navbar .img1 {
-        height: 150px;
-        position: relative;
-        top: -75px;
-        left: -75px;
-    }
-    .navbar .img2 {
-        height: 400px;
-        position: relative;
-        top: -90px;
-        right: -100px;
-    }
-    .navbar {
-        width: 100%;
-        height: 200px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
-    }
-    .footer {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        overflow: hidden;
-    }
-    .footer .img3 {
-        position: relative;
-        height: 300px;
-        left: -150px;
-        bottom: -150px;
-    }
-    .showcase {
-        height: 400px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        border-bottom: 5px solid black;
-    }
-    .showcase .img4 {
-        margin-left: 50px;
-        height: 400px;
-        width: 400px;
-    }
-    .showcase .form {
-        margin-right: 30px;
-        margin-left: 10px;
-        text-align: center;
-    }
-    .showcase input {
-        font-family: Arial, Helvetica, sans-serif;
-        width: 200px;
-        margin: 0px 0 10px 0;
-        height: 30px;
-        border: none;
-        border-bottom: solid grey 2px;
-        outline: none;
-        font-size: 18px;
-    }
-    .showcase h1 {
-        color: rgb(109, 107, 107);
-        font-family: Arial, Helvetica, sans-serif;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        font-size: 24px;
-    }
-    .showcase button {
-        width: 200px;
-        height: 40px;
-        background-color: #8c59ff;
-        color: white;
-        font-size: 22px;
-        border-radius: 10px;
-        margin-top: 5px;
-    }
-    .showcase h4 {
-        margin: 0px;
-    }
-}
-
-@media(min-width:1201px) and (max-width:1440px) {
-    .navbar .img1 {
-        height: 150px;
-        position: relative;
-        top: -75px;
-        left: -75px;
-    }
-    .navbar .img2 {
-        height: 400px;
-        position: relative;
-        top: -90px;
-        right: -100px;
-    }
-    .navbar {
-        width: 100%;
-        height: 200px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
-    }
-    .footer {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        overflow: hidden;
-    }
-    .footer .img3 {
-        position: relative;
-        height: 300px;
-        left: -150px;
-        bottom: -150px;
-    }
-    .showcase {
-        height: 450px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        border-bottom: 5px solid black;
-    }
-    .showcase .img4 {
-        margin-left: 50px;
-        height: 450px;
-        width: 450px;
-    }
-    .showcase .form {
-        margin-right: 30px;
-        margin-left: 10px;
-        text-align: center;
-    }
-    .showcase input {
-        font-family: Arial, Helvetica, sans-serif;
-        width: 250px;
-        margin: 0px 0 15px 0;
-        height: 30px;
-        border: none;
-        border-bottom: solid grey 2px;
-        outline: none;
-        font-size: 22px;
-    }
-    .showcase h1 {
-        color: rgb(109, 107, 107);
-        font-family: Arial, Helvetica, sans-serif;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        font-size: 28px;
-    }
-    .showcase button {
-        width: 200px;
-        height: 45px;
-        background-color: #8c59ff;
-        color: white;
-        font-size: 22px;
-        border-radius: 10px;
-        margin-top: 5px;
-    }
-    .showcase h4 {
-        margin: 0px;
-    }
-}
-
-@media(min-width:1441px) {
-    .navbar .img1 {
-        height: 150px;
-        position: relative;
-        top: -75px;
-        left: -75px;
-    }
-    .navbar .img2 {
-        height: 400px;
-        position: relative;
-        top: -90px;
-        right: -100px;
-    }
-    .navbar {
-        width: 100%;
-        height: 200px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
-    }
-    .footer {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        overflow: hidden;
-    }
-    .footer .img3 {
-        position: relative;
-        height: 300px;
-        left: -150px;
-        bottom: -150px;
-    }
-    .showcase {
-        height: 550px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        border-bottom: 5px solid black;
-    }
-    .showcase .img4 {
-        margin-left: 50px;
-        height: 550px;
-        width: 550px;
-    }
-    .showcase .form {
-        margin-right: 50px;
-        margin-left: 10px;
-        text-align: center;
-    }
-    .showcase input {
-        font-family: Arial, Helvetica, sans-serif;
-        width: 300px;
-        margin: 0px 0 20px 0;
-        height: 35px;
-        border: none;
-        border-bottom: solid grey 2px;
-        outline: none;
-        font-size: 24px;
-    }
-    .showcase h1 {
-        color: rgb(109, 107, 107);
-        font-family: Arial, Helvetica, sans-serif;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        font-size: 32px;
-    }
-    .showcase button {
-        width: 220px;
-        height: 50px;
-        background-color: #8c59ff;
-        color: white;
-        font-size: 24px;
-        border-radius: 10px;
-        margin-top: 8px;
-    }
-    .showcase h4 {
-        margin: 0px;
     }
 }

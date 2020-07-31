@@ -45,7 +45,7 @@ const Activation = ({match}) => {
       };
     return (
         <Auxes>
-       <div className="navbar">
+       <div className="navbar7">
         <img src={ecllipse} alt="" className="img1" />
         <img src={ecllipse} alt="" className="img2" />
        </div>

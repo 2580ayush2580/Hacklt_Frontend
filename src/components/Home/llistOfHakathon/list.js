@@ -1,10 +1,8 @@
 import React , {Component} from 'react';
 import { connect } from 'react-redux'
-import {Route,withRouter,Redirect} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import Lists from './lists'
 import * as actions from '../../../store/actions/fetchData'
-import SelectLists from './selectedList'
-import Register from '../../../containers/Auth/register';
 class ListofHakathon extends Component{
     state = {
         id:null

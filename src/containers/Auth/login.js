@@ -5,9 +5,9 @@ import './register.css';
 import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
-// import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-const Login = () => {
+const Login = (props) => {
     const [formData, setFormData] = useState({
         email: '',
         password1: '',
@@ -35,6 +35,7 @@ const Login = () => {
                   textChange: 'Submitted'
                 });
               });
+              props.history.push('/');
             })
             .catch(err => {
               setFormData({
@@ -51,7 +52,7 @@ const Login = () => {
       };
     return (
         <Auxes>
-       <div className="navbar">
+       <div className="navbar7">
         <img src={ecllipse} alt="" className="img1" />
         <img src={ecllipse} alt="" className="img2" />
        </div>
@@ -64,12 +65,13 @@ const Login = () => {
               <br/>
               <input type="password" onChange={handleChange('password1')} placeholder="Password"/>
               <br/>
+              <a href="/users/password/forget">forget Paasword?</a>
               <button type='submit' >{textChange}</button>
               <br/>
               or
               <br/>
-              <button>Sign Up</button>
               </form>
+              <a href="/register"> <button>Sign Up</button></a>
             </div>
             <div>
             <img src={register} alt="" className="img4" />
@@ -82,4 +84,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default withRouter(Login);
