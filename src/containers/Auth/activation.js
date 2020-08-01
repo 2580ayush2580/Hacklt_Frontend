@@ -22,8 +22,8 @@ const Activation = ({match}) => {
         }
     
         console.log(token, name);
+         // eslint-disable-next-line
       }, [match.params]);
-      const { name, token, show } = formData;
     
       const handleSubmit = e => {
         e.preventDefault();

@@ -17,8 +17,6 @@ import Profile from './components/Dashboard/Profile';
 import Home from './components/Home/home';
 import SelectedHackathon from './components/myHackathon/selectedHackathon'
 import SelectedList from './components/Home/llistOfHakathon/selectedList';
-import Navbar from './containers/Navbar/navbar'
-import SelectedDatapara from './containers/Hackathon/SelectedDatapara';
 import {isAuth} from './helper/auth'
 const rootReducer = combineReducers({
   fetchData:fetchDataReducer,

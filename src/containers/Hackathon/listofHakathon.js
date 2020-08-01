@@ -2,7 +2,6 @@ import React , {Component} from 'react';
 import { connect } from 'react-redux'
 import Datapara from './dataPara'
 import * as actions from '../../store/actions/fetchData'
-import SelectDataPara from './SelectedDatapara'
 import Navbar from '../../containers/Navbar/navbar'
 import Footer from '../../containers/Footer/footer'
 import Form from './form'
@@ -26,7 +25,7 @@ class ListofHakathon extends Component{
 
         let list = this.props.list;
         let list2=<div style={{textAlign:"center"}} >No Past Hackathons!</div>;
-        if(list.length!=0){
+        if(list.length!==0){
             list2 = list.map(arr=>{
                 return <Datapara
                     nameOfHackathon={arr.nameOfHackathon}

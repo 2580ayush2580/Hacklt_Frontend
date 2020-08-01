@@ -6,7 +6,7 @@ const dataPara = (props)=>{
     
     return(
             <div>
-            <div onClick={props.clicked} className='HomeDataPara' onClick={props.clicked} >
+            <div  className='HomeDataPara' onClick={props.clicked} >
             <h3 style={{
                 marginBottom:"10px"
             }} >{props.nameOfHackathon}</h3>

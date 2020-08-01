@@ -1,6 +1,5 @@
 import React from 'react';
 import './footer.css'
-import ecllipse from '../../assets/Ellipse.svg';
 
 const Footer = () => {
     return (

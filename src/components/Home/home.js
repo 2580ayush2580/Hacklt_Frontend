@@ -1,7 +1,6 @@
  import React from 'react';
  import Navbar from '../../containers/Navbar/navbar';
  import Auxes from '../../Auxes/auxes';
- import group131 from '../../assets/Group131.svg';
  import './home.css';
  import Footer from '../../containers/Footer/footer'
  import ListOfHackathons from './llistOfHakathon/list';
