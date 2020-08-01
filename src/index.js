@@ -32,16 +32,16 @@ ReactDOM.render(
     <Switch>
     {/* {localStorage.getItem('user')===null ? console.log("not Auth") : console.log("Auth Hello")} */}
       <Route path='/' exact render={props => <Home {...props} />} />
-      <Route path='/hackathon/:id' exact render={props => <SelectedList {...props} />} />
+      <Route path='/register' exact render={props => <Register {...props} />} />
       <Route path='/login' exact render={props => <Login {...props} />} />
+      <Route path='/hackathon/:id' exact render={props => <SelectedList {...props} />} />
+      <Route path='/user/myhackathon' exact render={props => <Hackathon {...props} />} />
       <Route path='/myprofile' exact render={props => <Profile {...props} />} />
       <Route path='/createHackathon' exact render={props => <ListOfHackathon {...props} />} />
       <Route path='/createHackathon/myHackathon/:id' exact render={props => <SelectHackathon {...props} />} />
-      <Route path='/register' exact render={props => <Register {...props} />} />
       <Route path='/users/password/forget' exact render={props => <ForgetPassword {...props} />} />
       <Route path='/users/password/reset/:token' exact render={props => <ResetPassword {...props} />} />
       <Route path='/users/activate/:token' exact render={props => <Activate {...props} />} />
-      <Route path='/user/myhackathon' exact render={props => <Hackathon {...props} />} />
       <Route path='/user/myhackathon/:id' exact render={props => <SelectedHackathon {...props} />} />
       <Redirect to='/login' />
     </Switch>
