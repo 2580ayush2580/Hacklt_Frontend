@@ -12,7 +12,7 @@ class Hackathon extends Component {
         data:[],
     }
     componentDidMount = () =>{
-        axios.get('http://localhost:5000/api/hackathon/register/'+this.state.userId)
+        axios.get('https://hacklt-backend.herokuapp.com/api/hackathon/register/'+this.state.userId)
         .then(response => {
             // let key  = [];
             // key = response.data.map(res=>{

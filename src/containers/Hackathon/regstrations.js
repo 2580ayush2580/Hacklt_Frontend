@@ -33,7 +33,7 @@ const RegistrationForm = (props) => {
             
                 setFormData({...formData, branch: 'Submitting' });
                 axios
-                    .post(`http://localhost:5000/api//hackathon/register`, {
+                    .post(`https://hacklt-backend.herokuapp.com/hackathon/register`, {
                         firstName,
                         lastName,
                         email,

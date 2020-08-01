@@ -24,10 +24,10 @@ export const fetchDataStart = () => {
 export const fetchData = (value) => {
     return dispatch => {
         dispatch(fetchDataStart());
-        axios.get('http://localhost:5000/api/hackathonLists/'+value)
+        axios.get('https://hacklt-backend.herokuapp.com/api/hackathonLists/'+value)
             .then(response => {
             dispatch(fetchDataSuccess(response.data));
-            console.log(response)
+            console.log(process.env)
            }).catch(error=>{
                dispatch(fetchDataFail(error));
            })

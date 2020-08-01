@@ -36,7 +36,6 @@ class ListofHakathon extends Component{
         <div>
         {list2}
         {/* <SelectLists id={this.state.id} /> */}
-        {console.log(this.props)}
         {/* <Route path='/hackathon/:id' exact render={props => <SelectLists id={this.state.id} />} /> */}
         </div>
     );

@@ -15,7 +15,7 @@ class SelecteddataPara extends Component {
     }
 
     loadData () {
-                axios.get( 'http://localhost:5000/api/hackathon/participant/' + this.props.match.params.id )
+                axios.get( 'https://hacklt-backend.herokuapp.com/api/hackathon/participant/' + this.props.match.params.id )
                 .then((response)=>{
                     console.log(response.data)
                     this.setState({

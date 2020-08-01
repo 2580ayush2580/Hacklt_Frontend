@@ -25,7 +25,7 @@ const Register = () => {
             if (password1 === password2) {
                 setFormData({...formData, textChange: 'Submitting' });
                 axios
-                    .post(`http://localhost:5000/api/register`, {
+                    .post(`https://hacklt-backend.herokuapp.com/api/register`, {
                         name,
                         email,
                         password: password1

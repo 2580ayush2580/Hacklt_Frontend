@@ -17,7 +17,7 @@ import Profile from './components/Dashboard/Profile';
 import Home from './components/Home/home';
 import SelectedHackathon from './components/myHackathon/selectedHackathon'
 import SelectedList from './components/Home/llistOfHakathon/selectedList';
-import {isAuth} from './helper/auth'
+// import {isAuth} from './helper/auth'
 const rootReducer = combineReducers({
   fetchData:fetchDataReducer,
 })
@@ -28,9 +28,9 @@ const store = createStore(rootReducer,applyMiddleware(thunk))
 ReactDOM.render(
   <Provider store={store} >
     <BrowserRouter>
-    {console.log(isAuth())}
+    {/* {console.log(isAuth())} */}
     <Switch>
-    {localStorage.getItem('user')===null ? console.log("not Auth") : console.log("Auth Hello")}
+    {/* {localStorage.getItem('user')===null ? console.log("not Auth") : console.log("Auth Hello")} */}
       <Route path='/' exact render={props => <Home {...props} />} />
       <Route path='/hackathon/:id' exact render={props => <SelectedList {...props} />} />
       <Route path='/login' exact render={props => <Login {...props} />} />

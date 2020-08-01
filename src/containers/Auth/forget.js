@@ -19,7 +19,7 @@ const ForgetPassword = ({history}) => {
     if (email) {
       setFormData({ ...formData, textChange: 'Submitting' });
       axios
-        .put(`http://localhost:5000/api/forgotpassword`, {
+        .put(`https://hacklt-backend.herokuapp.com/api/forgotpassword`, {
           email
         })
         .then(res => {

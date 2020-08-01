@@ -31,7 +31,7 @@ const ResetPassword = ({match}) => {
       if ((password1 === password2) && password1 && password2) {
         setFormData({ ...formData, textChange: 'Submitting' });
         axios
-          .put(`http://localhost:5000/api/resetpassword`, {
+          .put(`https://hacklt-backend.herokuapp.com/api/resetpassword`, {
               newPassword: password1,
               resetPasswordLink: token
           })

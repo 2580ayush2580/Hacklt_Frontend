@@ -34,7 +34,7 @@ const HackathonForm = () => {
             
                 setFormData({...formData, textChange: 'Submitting' });
                 axios
-                    .post(`http://localhost:5000/api/hackathonLists`, {
+                    .post(`https://hacklt-backend.herokuapp.com/api/hackathonLists`, {
                         nameOfHackathon,
                         aboutTheHackathon,
                         problemStatement,

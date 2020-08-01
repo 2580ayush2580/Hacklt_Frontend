@@ -29,7 +29,7 @@ const Activation = ({match}) => {
         e.preventDefault();
         let token = match.params.token;
         axios
-          .post(`http://localhost:5000/api/activation`, {
+          .post(`https://hacklt-backend.herokuapp.com/api/activation`, {
             token
           })
           .then(res => {

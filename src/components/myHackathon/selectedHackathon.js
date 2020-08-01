@@ -35,7 +35,7 @@ class SelecteddataPara extends Component {
     submitHandeler=(e)=>{
         e.preventDefault();
         if(this.state.link){
-            axios.post('http://localhost:5000/api/hackathon/submit',{
+            axios.post('https://hacklt-backend.herokuapp.com/api/hackathon/submit',{
                 link:this.state.link,
                 hackathonId:this.props.match.params.id,
                 userEmail:this.state.userEmail,
@@ -55,7 +55,7 @@ class SelecteddataPara extends Component {
         // console.log(e.target.value)
     }
     loadData () {
-                axios.get( 'http://localhost:5000/api/hackathonLists/name/' + this.props.match.params.id )
+                axios.get( 'https://hacklt-backend.herokuapp.com/api/hackathonLists/name/' + this.props.match.params.id )
                 .then((response)=>{
                     console.log(response.data)
                     this.setState({
