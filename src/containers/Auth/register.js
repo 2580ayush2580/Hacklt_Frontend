@@ -4,6 +4,7 @@ import './register.css';
 import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
+import { withRouter,Link } from 'react-router-dom';
 
 const Register = () => {
 
@@ -86,7 +87,7 @@ const Register = () => {
               or
               <br/>
               </form>
-              <a href="/login"><button>Login</button></a>
+              <Link to="/login"><button>Login</button></Link>
             </div>
             <div>
             <img src={register} alt="" className="img4" />
@@ -100,4 +101,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default withRouter(Register);

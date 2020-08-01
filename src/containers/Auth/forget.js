@@ -4,8 +4,9 @@ import './register.css';
 import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
+import { withRouter } from 'react-router-dom';
 
-const ForgetPassword = ({history}) => {
+const ForgetPassword = ({history},props) => {
   const [formData, setFormData] = useState({
     email: '',
     textChange: 'Submit'
@@ -29,7 +30,7 @@ const ForgetPassword = ({history}) => {
               email: '',
             });
             console.log(`Please check your email`);
-          
+            props.history.push('/login');
         })
         .catch(err => {
         console.log(err.response)
@@ -66,4 +67,4 @@ const ForgetPassword = ({history}) => {
   );
 };
 
-export default ForgetPassword;
+export default withRouter(ForgetPassword);

@@ -5,7 +5,7 @@ import './register.css';
 import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
-import { withRouter } from 'react-router-dom';
+import { withRouter,Link } from 'react-router-dom';
 
 const Login = (props) => {
     const [formData, setFormData] = useState({
@@ -65,13 +65,13 @@ const Login = (props) => {
               <br/>
               <input type="password" onChange={handleChange('password1')} placeholder="Password"/>
               <br/>
-              <a href="/users/password/forget">forget Paasword?</a>
+              <Link to="/users/password/forget">forget Paasword?</Link>
               <button type='submit' >{textChange}</button>
               <br/>
               or
               <br/>
               </form>
-              <a href="/register"> <button>Sign Up</button></a>
+              <Link to="/register"> <button>Sign Up</button></Link>
             </div>
             <div>
             <img src={register} alt="" className="img4" />

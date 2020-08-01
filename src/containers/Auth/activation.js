@@ -5,8 +5,9 @@ import './register.css';
 import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
-
-const Activation = ({match}) => {
+import { withRouter } from 'react-router-dom';
+ 
+const Activation = ({match},props) => {
     const [formData, setFormData] = useState({
         name: '',
         token: '',
@@ -37,9 +38,11 @@ const Activation = ({match}) => {
               ...formData,
               show: false
             });
+            props.history.push('/login');
             console.log(res.data,token)
           })
           .catch(err => {
+            props.history.push('/register');
             console.log(err)
           });
       };
@@ -68,4 +71,4 @@ const Activation = ({match}) => {
     );
 };
 
-export default Activation;
+export default withRouter(Activation);
