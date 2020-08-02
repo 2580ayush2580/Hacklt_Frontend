@@ -4,9 +4,10 @@ import './register.css';
 import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
+import { withRouter } from 'react-router-dom';
 
 
-const ResetPassword = ({match}) => {
+const ResetPassword = ({match},props) => {
     const [formData, setFormData] = useState({
         password1: '',
         password2: '',
@@ -42,6 +43,7 @@ const ResetPassword = ({match}) => {
                  password1: '',
                 password2: ''
               });
+              props.history.push('/login');
           })
           .catch(err => {
             console.log('Something is wrong try again');
@@ -80,5 +82,5 @@ const ResetPassword = ({match}) => {
       
   };
   
-  export default ResetPassword;
+  export default withRouter(ResetPassword);
   

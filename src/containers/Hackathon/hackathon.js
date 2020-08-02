@@ -3,27 +3,25 @@ import axios from 'axios';
 import Navbar from '../Navbar/navbar'
 import {withRouter} from 'react-router-dom';
 import MyHackathon from '../../components/myHackathon/myhackathon'
-import Footer from '../Footer/footer'
-
+import Spinner from "../../components/UI/spinner"
+import Footer from '../Footer/footer';
 
 class Hackathon extends Component {
     state={
         userId: JSON.parse(localStorage.getItem('user'))._id,
         data:[],
+        loading:true
     }
     componentDidMount = () =>{
         axios.get('https://hacklt-backend.herokuapp.com/api/hackathon/register/'+this.state.userId)
         .then(response => {
-            // let key  = [];
-            // key = response.data.map(res=>{
-            //     return res.hackathonId;
-            // })
-            // key = response.data.map(res=>{
-            //     return res.data.nameOfHackathon;
-            // })
-            // console.log(key);
             this.setState({
-                data:response.data
+                data:response.data,
+                loading:false
+            })
+        }).catch(err=>{
+            this.setState({
+                loading:false
             })
         })
     }
@@ -31,7 +29,12 @@ class Hackathon extends Component {
         this.props.history.push( '/user/myhackathon/' + id );
     }
   render(){
-    let key = [];
+    let key = <div style={{
+        textAlign:"center",
+        marginTop:"20px",
+        fontSize:"20px"
+    }} >Not Register In Any Hackathon</div>;
+   if(this.state.data.length!==0){
     key = this.state.data.map(res=>{
         return <MyHackathon 
         key={res.hackathonId}
@@ -39,14 +42,11 @@ class Hackathon extends Component {
         data={res.data}
          />;
     })
-    // console.log(key)
-    // key = response.data.map(res=>{
-    //     return res.data.nameOfHackathon;
-    // })
+   }
     return (
         <div>
         <Navbar/>
-        {key}
+        { this.state.loading ? <Spinner /> : key}
         <Footer />
         </div>
     );

@@ -20,10 +20,11 @@ const RegistrationForm = (props) => {
         country:'',
         contactNumber:'',
         alternateContactNumber:'',
+        text:"Submit",
         UserId:JSON.parse(localStorage.getItem('user'))._id
     });
 
-    const { firstName, lastName, email, dateOfBirth, gender, college, degree, branch, UserId,graduationYear,skills,contactNumber,alternateContactNumber,city,state,country } = formData;
+    const { firstName, lastName, email, dateOfBirth, gender, college, degree, branch, UserId,graduationYear,skills,contactNumber,alternateContactNumber,city,state,country,text } = formData;
     const handleChange = text => e => {
         setFormData({...formData, [text]: e.target.value });
     };
@@ -33,7 +34,7 @@ const RegistrationForm = (props) => {
             
                 setFormData({...formData, branch: 'Submitting' });
                 axios
-                    .post(`https://hacklt-backend.herokuapp.com/hackathon/register`, {
+                    .post('https://hacklt-backend.herokuapp.com/api/hackathon/register', {
                         firstName,
                         lastName,
                         email,
@@ -70,7 +71,8 @@ const RegistrationForm = (props) => {
                             state:'',
                             country:'',
                             alternateContactNumber:'',
-                            branch: ''
+                            branch: '',
+                            text:"Submitted"
                         });
 
                     })
@@ -105,45 +107,12 @@ const RegistrationForm = (props) => {
         
         
        <div >
-        {/* <form action="" onSubmit={handleSubmit}>
-            <input type="text" onChange={handleChange('firstName')} placeholder="firstName"/>
-            <br/>
-            <input type="text" onChange={handleChange('lastName')} placeholder="lastName"/>
-            <br/>
-            <input type="email" onChange={handleChange('email')} placeholder="email"/>
-            <br/>
-            <input type="text" onChange={handleChange('gender')} placeholder="gender"/>
-            <br/>
-            <input type="text" onChange={handleChange('degree')} placeholder="degree"/>
-            <br/>
-            <input type="text" onChange={handleChange('branch')} placeholder="branch"/>
-            <br/>
-            <input type="text" onChange={handleChange('college')} placeholder="college"/>
-            <br/>
-            <input type="text" onChange={handleChange('dateOfBirth')}  placeholder="dateOfBirth"/>
-            <br/>
-            <input type="text" onChange={handleChange('graduationYear')}  placeholder="graduationYear"/>
-            <br/>
-            <input type="text" onChange={handleChange('skills')}  placeholder="skills"/>
-            <br/>
-            <input type="text" onChange={handleChange('city')}  placeholder="city"/>
-            <br/>
-            <input type="text" onChange={handleChange('state')}  placeholder="state"/>
-            <br/>
-            <input type="text" onChange={handleChange('country')}  placeholder="country"/>
-            <br/>
-            <input type="text" onChange={handleChange('contactNumber')}  placeholder="contactNumber"/>
-            <br/>
-            <input type="text" onChange={handleChange('alternateContactNumber')}  placeholder="alternateContactNumber"/>
-            <br/>
-            <button className="btn" type='submit' >Submit</button>
-        </form> */}
         <div id="form-outer">
          <p id="description">Fill This Form To Participate</p>
     <form id="hackathon-form"  onSubmit={handleSubmit} >
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*First Name: </label>
+        <label id="name-label" >*First Name: </label>
       </div>
       <div class="rightTab">
         <input autoFocus  type="text"  onChange={handleChange('firstName')} name="name" id="name" class="input-field" placeholder="First Name" required />
@@ -151,7 +120,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*Last Name: </label>
+        <label id="name-label" >*Last Name: </label>
       </div>
       <div class="rightTab">
         <input  type="text" onChange={handleChange('lastName')} name="name" id="name" class="input-field" placeholder="Last Name" required />
@@ -159,7 +128,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*Email: </label>
+        <label id="name-label" >*Email: </label>
       </div>
       <div class="rightTab">
         <input  type="email"  onChange={handleChange('email')} name="email" id="email" class="input-field" placeholder="Enter Your Email" required />
@@ -167,7 +136,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*Gender: </label>
+        <label id="name-label" >*Gender: </label>
       </div>
       <div class="rightTab">
         <input  type="text"  onChange={handleChange('gender')} name="gender" id="gender" class="input-field" placeholder="Eg: Male, Female, Other" required />
@@ -175,7 +144,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*Degree: </label>
+        <label id="name-label" >*Degree: </label>
       </div>
       <div class="rightTab">
         <input  type="text"  onChange={handleChange('degree')} name="degree" id="degree" class="input-field" placeholder="Enter Your Degree" required />
@@ -183,7 +152,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*Branch: </label>
+        <label id="name-label" >*Branch: </label>
       </div>
       <div class="rightTab">
         <input  type="text"  onChange={handleChange('branch')} name="branch" id="branch" class="input-field" placeholder="Ex:-Computer Science" required />
@@ -191,7 +160,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*College: </label>
+        <label id="name-label" >*College: </label>
       </div>
       <div class="rightTab">
         <input  type="text"  onChange={handleChange('college')} name="college" id="college" class="input-field" placeholder="College Name" required />
@@ -199,7 +168,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*Date Of Birth: </label>
+        <label id="name-label" >*Date Of Birth: </label>
       </div>
       <div class="rightTab">
         <input  type="date"  onChange={handleChange('dateOfBirth')} name="dateOfBirth" id="dateOfBirth" class="input-field" placeholder="First Name" required />
@@ -207,7 +176,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*Graduation Year: </label>
+        <label id="name-label" >*Graduation Year: </label>
       </div>
       <div class="rightTab">
         <input  type="number"  onChange={handleChange('graduationYear')} name="graduationYear" id="graduationYear" class="input-field" placeholder="Graduation Year" required />
@@ -215,7 +184,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*Skills: </label>
+        <label id="name-label" >*Skills: </label>
       </div>
       <div class="rightTab">
         <input  type="text"  onChange={handleChange('skills')} name="skills" id="skills" class="input-field" placeholder="Ex:- HTML, CSS" required />
@@ -223,7 +192,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*City: </label>
+        <label id="name-label" >*City: </label>
       </div>
       <div class="rightTab">
         <input  type="text"  onChange={handleChange('city')} name="city" id="city" class="input-field" placeholder="Enter Your City" required />
@@ -231,7 +200,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*State: </label>
+        <label id="name-label" >*State: </label>
       </div>
       <div class="rightTab">
         <input  type="text"  onChange={handleChange('state')} name="state" id="state" class="input-field" placeholder="Enter Your State" required />
@@ -239,7 +208,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*Country: </label>
+        <label id="name-label" >*Country: </label>
       </div>
       <div class="rightTab">
         <input  type="text"  onChange={handleChange('country')} name="country" id="country" class="input-field" placeholder="Your Country" required />
@@ -247,7 +216,7 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*Contact Number: </label>
+        <label id="name-label" >*Contact Number: </label>
       </div>
       <div class="rightTab">
         <input  type="number"  onChange={handleChange('contactNumber')} name="contactNumber" id="contactNumber" class="input-field" placeholder="Contact Number" required />
@@ -255,13 +224,13 @@ const RegistrationForm = (props) => {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="name-label" for="name">*Alternate Contact Number: </label>
+        <label id="name-label" >*Alternate Contact Number: </label>
       </div>
       <div class="rightTab">
         <input  type="text"  onChange={handleChange('alternateContactNumber')} name="alternateContactNumber" id="alternateContactNumber" class="input-field" placeholder="Contact Number" required />
       </div>
     </div>
-    <button className="submit" type="submit">Submit</button>
+    <button className="submit" type="submit">{text}</button>
     </form>
     </div>
         </div>

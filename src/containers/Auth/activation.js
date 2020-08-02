@@ -5,15 +5,16 @@ import './register.css';
 import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
-import { withRouter } from 'react-router-dom';
+import { withRouter,Link } from 'react-router-dom';
  
 const Activation = ({match},props) => {
     const [formData, setFormData] = useState({
         name: '',
         token: '',
-        show: true
+        show: true,
+        text:"Activate"
       });
-    
+    const {text} = formData;
       useEffect(() => {
         let token = match.params.token;
         let { name } = jwt.decode(token);
@@ -36,13 +37,12 @@ const Activation = ({match},props) => {
           .then(res => {
             setFormData({
               ...formData,
-              show: false
+              show: false,
+              text:"Activated"
             });
-            props.history.push('/login');
-            console.log(res.data,token)
+            console.log(res)
           })
           .catch(err => {
-            props.history.push('/register');
             console.log(err)
           });
       };
@@ -57,8 +57,10 @@ const Activation = ({match},props) => {
               <form action="" onSubmit={handleSubmit}>
               <h1>Activate Account</h1>
               <br/>
-              <button type='submit' >Activate</button>
+              <button type='submit' >{text}</button>
               </form>
+              <br/>
+              <Link to="/=login"> <button>Login</button></Link>
             </div>
             <div>
             <img src={register} alt="" className="img4" />

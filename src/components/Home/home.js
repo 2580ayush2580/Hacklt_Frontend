@@ -9,15 +9,6 @@
      return (
          <Auxes>
              <Navbar />
-             {/* <div><div className="homeshowcase">
-             <img src={group131} alt=""/>
-             <div className="homeheading" >
-             <h2>Wanna Develop?<br/>Try Hacklt</h2>
-             <br/>
-             <h3>Explore new hackathon daily to boost your development skills</h3>
-             </div>
-             </div></div> */}
-
              <ListOfHackathons />
              <Footer/>
          </Auxes>

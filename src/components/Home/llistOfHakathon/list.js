@@ -3,9 +3,10 @@ import { connect } from 'react-redux'
 import {withRouter} from 'react-router-dom';
 import Lists from './lists'
 import * as actions from '../../../store/actions/fetchData'
+import Spinner from '../../UI/spinner'
 class ListofHakathon extends Component{
     state = {
-        id:null
+        id:null,
     }
     componentDidMount = () =>{
         this.props.onFetchData('all')
@@ -19,8 +20,12 @@ class ListofHakathon extends Component{
     }
    render(){
 
+       let list2=null;
+       if(this.props.loading){
+        list2=<Spinner/>;
+       }
+       if(!this.props.loading){
         let list = this.props.list;
-        let list2=null;
         list2 = list.map(arr=>{
           return <Lists
               aboutTheHackathon={arr.aboutTheHackathon}
@@ -32,11 +37,10 @@ class ListofHakathon extends Component{
               clicked={()=>this.selectHandeler(arr._id)}
            />
         })
+       }
     return (
         <div>
         {list2}
-        {/* <SelectLists id={this.state.id} /> */}
-        {/* <Route path='/hackathon/:id' exact render={props => <SelectLists id={this.state.id} />} /> */}
         </div>
     );
    }

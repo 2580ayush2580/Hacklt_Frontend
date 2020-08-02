@@ -5,6 +5,7 @@ import axios from 'axios'
 import Participant from '../../components/participant/participant'
 import Submission from '../../components/submission/submission'
 import {withRouter} from 'react-router-dom';
+import Spinner from "../../components/UI/spinner"
 
 class SelecteddataPara extends Component {
     state = {
@@ -25,7 +26,8 @@ class SelecteddataPara extends Component {
         email:null,
         show:null,
         participant:false,
-        Submissions:false
+        Submissions:false,
+        loading:true
     }
     participanthandeler=()=>{
         this.setState({
@@ -44,12 +46,6 @@ class SelecteddataPara extends Component {
         console.log(this.props);
         this.loadData();
     }
-
-    // componentDidUpdate() {
-    //     console.log(this.props);
-    //     this.loadData();
-    // }
-
     loadData () {
                 axios.get( 'https://hacklt-backend.herokuapp.com/api/hackathonLists/name/' + this.props.match.params.id )
                 .then((response)=>{
@@ -68,14 +64,19 @@ class SelecteddataPara extends Component {
                         Location:response.data.location,
                         email:response.data.email,
                         Instructions:response.data.instructions,
-                        data:response.data
-                    }) } );
+                        data:response.data,
+                        loading:false
+                    }) } ).catch(err=>{
+                        this.setState({
+                            loading:false
+                        })
+                    });
     }
     render() {
         return(
            <div>
                 <Navbar />
-                <div className='selectedListDataPara' >
+             {this.state.loading ? <Spinner />  : <div className='selectedListDataPara' >
                 <h4 style={{
                     marginBottom:"10px"
                 }} >{this.state.nameOfHackathon}</h4>
@@ -111,7 +112,7 @@ class SelecteddataPara extends Component {
                 }} className="btn" onClick={this.submissionhandeler} >Submissions</button>
                {this.state.participant===true?<Participant />:null}
                {this.state.Submissions===true?<Submission />:null}
-               </div>
+               </div>}
            </div>
     )
     }

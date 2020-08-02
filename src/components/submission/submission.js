@@ -2,11 +2,13 @@ import React,{Component} from 'react'
 import axios from 'axios'
 import {withRouter} from 'react-router-dom';
 import './submission.css'
+import Spinner from "../UI/spinner"
 
 class SelecteddataPara extends Component {
 
     state = {
        links:[],
+       loading:true
     }
 
     componentDidMount () {
@@ -18,8 +20,13 @@ class SelecteddataPara extends Component {
                 .then((response)=>{
                     console.log(response.data)
                     this.setState({
-                    links:response.data
-                    }) } );
+                    links:response.data,
+                    loading:false
+                    }) } ).catch(()=>{
+                        this.setState({
+                            loading:false
+                        })
+                    });
     }
     render() {
         let value=<div>No submission!</div>
@@ -32,6 +39,9 @@ class SelecteddataPara extends Component {
                &nbsp;<span> Github Link: </span> <a href={res.link}>{res.link.slice(0,35)}... <button style={{marginLeft:"15px"}} className="btn" >view</button></a></div>
             })
         }
+        if(this.state.loading){
+            value = <Spinner />
+           }
         return(
            <div>
              {value}

@@ -2,11 +2,13 @@ import React,{Component} from 'react'
 import axios from 'axios'
 import {withRouter} from 'react-router-dom';
 import Participants from './participants'
+import Spinner from "../UI/spinner"
 
 class SelecteddataPara extends Component {
 
     state = {
-       data:[]
+       data:[],
+       loading:true
     }
 
     componentDidMount () {
@@ -19,8 +21,13 @@ class SelecteddataPara extends Component {
                 .then((response)=>{
                     console.log(response.data)
                     this.setState({
-                    data:response.data
-                    }) } );
+                    data:response.data,
+                    loading:false
+                    }) } ).catch(()=>{
+                        this.setState({
+                            loading:false
+                            })
+                    });
     }
     render() {
         let value=<div style={{marginTop:"15px"}} ><p>No Participant!</p></div>;
@@ -49,6 +56,9 @@ class SelecteddataPara extends Component {
                  />
             )
         })
+       }
+       if(this.state.loading){
+        value = <Spinner />
        }
         return(
            <div>

@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import Navbar from '../../containers/Navbar/navbar'
 import axios from 'axios'
 import {withRouter} from 'react-router-dom';
+import Spinner from "../UI/spinner"
 
 class SelecteddataPara extends Component {
 
@@ -25,7 +26,9 @@ class SelecteddataPara extends Component {
         location:null,
         Rules:null,
         Instructions:null,
-        Name:null
+        Name:null,
+        loading:true,
+        text:"submit"
     }
   
     componentDidMount () {
@@ -42,6 +45,9 @@ class SelecteddataPara extends Component {
                 name:this.state.Name
             })
             .then(response=>{
+                this.setState({
+                    text:"Submitted"
+                })
                 // console.log(response)
             })
         }else{
@@ -72,14 +78,15 @@ class SelecteddataPara extends Component {
                         Location:response.data.location,
                         email:response.data.email,
                         Instructions:response.data.instructions,
-                        data:response.data
+                        data:response.data,
+                        loading:false,
                     }) } );
     }
     render() {
         return(
            <div>
                 <Navbar />
-                 <div className='selectedListDataPara' >
+              {this.state.loading ? <Spinner /> :  <div className='selectedListDataPara' >
                 <h4 style={{
                     marginBottom:"10px"
                 }} >{this.state.nameOfHackathon}</h4>
@@ -113,9 +120,9 @@ class SelecteddataPara extends Component {
                    <label style={{marginTop:"15px"}} htmlFor="">*Github Link</label><br/>
                    <input style={{padding:"0px 5px",borderRadius:"2px"}} onChange={this.handleChange('link')} type="text" placeholder="GithubLink" />
                    <br/>
-                   <button style={{marginTop:"15px"}} type="submit" className="btn" > Submit</button>
+                   <button style={{marginTop:"15px"}} type="submit" className="btn" >{this.state.text}</button>
                </form>
-               </div>
+               </div>}
              
            </div>
     )

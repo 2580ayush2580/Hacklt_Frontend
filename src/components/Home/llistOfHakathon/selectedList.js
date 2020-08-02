@@ -4,6 +4,7 @@ import './selectedList.css'
 import axios from 'axios'
 import {withRouter} from 'react-router-dom';
 import RegisterForm from '../../../containers/Hackathon/regstrations'
+import Spinner from '../../UI/spinner'
 
 class SelecteddataPara extends Component {
 
@@ -23,7 +24,8 @@ class SelecteddataPara extends Component {
         prizes:null,
         Judges:null,
         email:null,
-        show:null
+        show:null,
+        loading:true
     }
     showHandeler=()=>{
         this.setState({
@@ -35,11 +37,6 @@ class SelecteddataPara extends Component {
         console.log(this.props);
         this.loadData();
     }
-
-    // componentDidUpdate() {
-    //     console.log(this.props);
-    //     this.loadData();
-    // }
 
     loadData () {
                 axios.get( 'https://hacklt-backend.herokuapp.com/api/hackathonLists/name/' + this.props.match.params.id )
@@ -59,14 +56,15 @@ class SelecteddataPara extends Component {
                         Location:response.data.location,
                         email:response.data.email,
                         Instructions:response.data.instructions,
-                        data:response.data
+                        data:response.data,
+                        loading:false
                     }) } );
     }
     render() {
         return(
            <div>
                 <Navbar />
-                <div className='selectedListDataPara' >
+                {this.state.loading ? <Spinner /> :  <div className='selectedListDataPara' >
                 <h4 style={{
                     marginBottom:"10px"
                 }} >{this.state.nameOfHackathon}</h4>
@@ -89,7 +87,7 @@ class SelecteddataPara extends Component {
                 <p><i class="fas fa-location-arrow"></i> Location: {this.state.Location}</p>
                 <p><i class="fas fa-envelope"></i> Contact us: {this.state.email}</p>
                 <button onClick={this.showHandeler} className="btn">Participate</button>
-               </div>
+               </div>}
                {this.state.show?<RegisterForm  id={ this.state.id} data={this.state.data} />:null}
            </div>
     )

@@ -5,6 +5,8 @@ import * as actions from '../../store/actions/fetchData'
 import Navbar from '../../containers/Navbar/navbar'
 import Footer from '../../containers/Footer/footer'
 import Form from './form'
+import Spinner from "../../components/UI/spinner"
+
 class ListofHakathon extends Component{
     state = {
         owner:JSON.parse(localStorage.getItem('user'))._id,
@@ -22,7 +24,7 @@ class ListofHakathon extends Component{
     }
 
    render(){
-
+       
         let list = this.props.list;
         let list2=<div style={{textAlign:"center"}} >No Past Hackathons!</div>;
         if(list.length!==0){
@@ -37,6 +39,9 @@ class ListofHakathon extends Component{
                     clicked={()=>this.selectHandeler(arr._id)}
                  />
               })
+        }
+        if(this.props.loading){
+            list2=<Spinner />
         }
     return (
         <div>
