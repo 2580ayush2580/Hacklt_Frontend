@@ -6,6 +6,8 @@ import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
 import { withRouter,Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
  
 const Activation = ({match},props) => {
     const [formData, setFormData] = useState({
@@ -40,14 +42,15 @@ const Activation = ({match},props) => {
               show: false,
               text:"Activated"
             });
-            console.log(res)
+            toast.success("Now you can login!")
           })
           .catch(err => {
-            console.log(err)
+            toast.error("This Link is Expired Signup Again!")
           });
       };
     return (
         <Auxes>
+        <ToastContainer />
        <div className="navbar7">
         <img src={ecllipse} alt="" className="img1" />
         <img src={ecllipse} alt="" className="img2" />

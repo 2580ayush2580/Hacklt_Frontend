@@ -5,6 +5,8 @@ import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
 import { withRouter,Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
@@ -40,7 +42,7 @@ const Register = () => {
                             password2: '',
                             textChange: 'Submitted'
                         });
-
+                        toast.success(res.data.message);
                     })
                     .catch(err => {
                         setFormData({
@@ -51,13 +53,13 @@ const Register = () => {
                             password2: '',
                             textChange: 'Sign Up'
                         });
-                        console.log(err.response);
+                        toast.error(err.response.data.errors);
                     });
             } else {
-                console.log("Passwords don't matches");
+                toast.error("Passwords don't matches");
             }
         } else {
-            console.log('Please fill all fields');
+            toast.error('Please fill all fields');
         }
     };
     
@@ -65,8 +67,10 @@ const Register = () => {
       
        
         <Auxes>
+        
        <div className="navbar7">
         <img src={ecllipse} alt="" className="img1" />
+       <ToastContainer />
         <img src={ecllipse} alt="" className="img2" />
        </div>
         <div  className="showcase">
@@ -74,13 +78,13 @@ const Register = () => {
               <form action="" onSubmit={handleSubmit}>
               <h1>SIGN UP</h1>
               <br/>
-              <input type="text" onChange={handleChange('name')} placeholder="Name" />
+              <input type="text" onChange={handleChange('name')} value={name} placeholder="Name" />
               <br/>
-              <input type="email" onChange={handleChange('email')} placeholder="Email" />
+              <input type="email" onChange={handleChange('email')} value={email}  placeholder="Email" />
               <br/>
-              <input type="password" onChange={handleChange('password1')} placeholder="Password" />
+              <input type="password" onChange={handleChange('password1')} value={password1}  placeholder="Password" />
               <br/>
-              <input type="password" onChange={handleChange('password2')} placeholder="Confirm Password" />
+              <input type="password" onChange={handleChange('password2')} value={password2}  placeholder="Confirm Password" />
               <br/>
               <button type='submit' >{textChange}</button>
               <br/>

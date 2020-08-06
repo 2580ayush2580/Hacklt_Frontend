@@ -5,6 +5,8 @@ import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
 import { withRouter } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ForgetPassword = ({history},props) => {
   const [formData, setFormData] = useState({
@@ -24,24 +26,22 @@ const ForgetPassword = ({history},props) => {
           email
         })
         .then(res => {
-          
             setFormData({
               ...formData,
               email: '',
             });
-            console.log(`Please check your email`);
-            props.history.push('/login');
+          toast.success(`Please check your email`);
         })
         .catch(err => {
-        console.log(err.response)
-          console.log(err.response.data.error);
+        toast.error(err.response.data.error);
         });
     } else {
-      console.log('Please fill all fields');
+      toast.error('Please fill all fields');
     }
   };
   return (
   <Auxes>
+  <ToastContainer />
        <div className="navbar7">
         <img src={ecllipse} alt="" className="img1" />
         <img src={ecllipse} alt="" className="img2" />
@@ -51,7 +51,7 @@ const ForgetPassword = ({history},props) => {
               <form action="" onSubmit={handleSubmit}>
               <h1>Forget Password</h1>
               <br/>
-              <input type="email" onChange={handleChange('email')} placeholder="Email" />
+              <input type="email" onChange={handleChange('email')} value={email} placeholder="Email" />
               <br/>
               <button type='submit' >{textChange}</button>
               </form>

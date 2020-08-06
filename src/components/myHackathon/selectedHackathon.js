@@ -3,6 +3,8 @@ import Navbar from '../../containers/Navbar/navbar'
 import axios from 'axios'
 import {withRouter} from 'react-router-dom';
 import Spinner from "../UI/spinner"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class SelecteddataPara extends Component {
 
@@ -20,13 +22,13 @@ class SelecteddataPara extends Component {
         Judges:null,
         email:null,
         show:null,
-        link:null,
+        link:"",
         hackathonId:null,
-        userEmail:null,
+        userEmail:"",
         location:null,
         Rules:null,
         Instructions:null,
-        Name:null,
+        Name:"",
         loading:true,
         text:"submit"
     }
@@ -46,12 +48,23 @@ class SelecteddataPara extends Component {
             })
             .then(response=>{
                 this.setState({
-                    text:"Submitted"
+                    text:"Submitted",
+                    link:"",
+                    userEmail:"",
+                    name:""
                 })
                 // console.log(response)
+                toast.success("Great You have submitted Your Project.")
+            }).catch(()=>{
+                this.setState({
+                    link:"",
+                    userEmail:"",
+                    name:""
+                })
+                toast.error("Something went wrong. Please submit again!")
             })
         }else{
-            console.log("Fill the field")
+            toast.error("Something went wrong. Please submit again!")
         }
     }
     handleChange = text => (e) =>{
@@ -80,11 +93,15 @@ class SelecteddataPara extends Component {
                         Instructions:response.data.instructions,
                         data:response.data,
                         loading:false,
-                    }) } );
+                    })
+                } ).catch(()=>{
+                        
+                    });
     }
     render() {
         return(
            <div>
+           <ToastContainer />
                 <Navbar />
               {this.state.loading ? <Spinner /> :  <div className='selectedListDataPara' >
                 <h4 style={{
@@ -112,13 +129,13 @@ class SelecteddataPara extends Component {
                 <label style={{
                 }}>Submit Your Project:</label><br/>
                    <label htmlFor="">*Your Name</label><br/>
-                   <input style={{padding:"0px 5px",borderRadius:"2px"}} onChange={this.handleChange('Name')} type="text" placeholder="Name" />
+                   <input style={{padding:"0px 5px",borderRadius:"2px"}} onChange={this.handleChange('Name')} value={this.state.Name} type="text" placeholder="Name" required />
                    <br/>
                    <label style={{marginTop:"15px"}} htmlFor="">*Email</label><br/>
-                   <input style={{padding:"0px 5px",borderRadius:"2px"}} onChange={this.handleChange('userEmail')} type="email" placeholder="Email" />
+                   <input style={{padding:"0px 5px",borderRadius:"2px"}} onChange={this.handleChange('userEmail')} value={this.state.userEmail} type="email" placeholder="Email" required />
                    <br/>
                    <label style={{marginTop:"15px"}} htmlFor="">*Github Link</label><br/>
-                   <input style={{padding:"0px 5px",borderRadius:"2px"}} onChange={this.handleChange('link')} type="text" placeholder="GithubLink" />
+                   <input style={{padding:"0px 5px",borderRadius:"2px"}} onChange={this.handleChange('link')} value={this.state.link} type="text" placeholder="GithubLink" required />
                    <br/>
                    <button style={{marginTop:"15px"}} type="submit" className="btn" >{this.state.text}</button>
                </form>

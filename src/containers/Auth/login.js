@@ -6,6 +6,9 @@ import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
 import { withRouter,Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = (props) => {
     const [formData, setFormData] = useState({
@@ -35,7 +38,9 @@ const Login = (props) => {
                   textChange: 'Submitted'
                 });
               });
+              console.log(res.data.message);
               props.history.push('/');
+              toast.success(`Hey ${res.data.user.name}, Welcome back!`);
             })
             .catch(err => {
               setFormData({
@@ -44,14 +49,15 @@ const Login = (props) => {
                 password1: '',
                 textChange: 'Sign In'
               });
-              console.log(err.response);
+              toast.error(err.response.data.errors);
             });
         } else {
-          console.log('Please fill all fields');
+         toast.error('Please fill all fields');
         }
       };
     return (
         <Auxes>
+        <ToastContainer />
        <div className="navbar7">
         <img src={ecllipse} alt="" className="img1" />
         <img src={ecllipse} alt="" className="img2" />
@@ -61,9 +67,9 @@ const Login = (props) => {
               <form action="" onSubmit={handleSubmit}>
               <h1>Login</h1>
               <br/>
-              <input type="email" onChange={handleChange('email')} placeholder="Email" />
+              <input type="email" onChange={handleChange('email')} value={email} placeholder="Email" />
               <br/>
-              <input type="password" onChange={handleChange('password1')} placeholder="Password"/>
+              <input type="password" onChange={handleChange('password1')} value={password1} placeholder="Password"/>
               <br/>
               <Link to="/users/password/forget">forget Paasword?</Link>
               <button type='submit' >{textChange}</button>

@@ -5,7 +5,8 @@ import ecllipse from '../../assets/Ellipse.svg';
 import register from '../../assets/register.svg';
 import Auxes from '../../Auxes/auxes'
 import { withRouter } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ResetPassword = ({match},props) => {
     const [formData, setFormData] = useState({
@@ -43,17 +44,19 @@ const ResetPassword = ({match},props) => {
                  password1: '',
                 password2: ''
               });
+              toast.success(res.data.message)
               props.history.push('/login');
           })
           .catch(err => {
-            console.log('Something is wrong try again');
+            toast.error('Something is wrong try again');
           });
       } else {
-        console.log('Passwords don\'t matches');
+       toast.error('Passwords don\'t matches');
       }
     }; 
     return (
         <Auxes>
+        <ToastContainer />
        <div className="navbar7">
         <img src={ecllipse} alt="" className="img1" />
         <img src={ecllipse} alt="" className="img2" />
@@ -63,9 +66,9 @@ const ResetPassword = ({match},props) => {
               <form action="" onSubmit={handleSubmit}>
               <h1>Update password</h1>
               <br/>
-              <input type="password" onChange={handleChange('password1')} placeholder="Password"/>
+              <input type="password" onChange={handleChange('password1')} value={password1} placeholder="Password"/>
               <br/>
-              <input type="password" onChange={handleChange('password2')} placeholder="Confirm Password"/>
+              <input type="password" onChange={handleChange('password2')} value={password2} placeholder="Confirm Password"/>
               <br/>
               <button type='submit' >{textChange}</button>
               </form>

@@ -25,7 +25,7 @@ class SelecteddataPara extends Component {
         Judges:null,
         email:null,
         show:null,
-        loading:true
+        loading:true,
     }
     showHandeler=()=>{
         this.setState({
@@ -34,7 +34,9 @@ class SelecteddataPara extends Component {
     }
 
     componentDidMount () {
-        console.log(this.props);
+        if(!localStorage.getItem('user')){
+            this.props.history.push('/register')
+        }
         this.loadData();
     }
 

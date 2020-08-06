@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import './form.css';
 import Auxes from '../../Auxes/auxes'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HackathonForm = () => {
 
@@ -70,7 +72,7 @@ const HackathonForm = () => {
                             textChange: 'Submitted',
                             email:''
                         });
-
+                        toast.success("Great You Have Created a Hackathon.")
                     })
                     .catch(err => {
                         setFormData({
@@ -95,12 +97,13 @@ const HackathonForm = () => {
                     });
             }
         else {
-            console.log('Please fill all fields');
+            toast.error('Please fill all fields');
         }
     };
     
     return (
         <Auxes>
+        <ToastContainer />
         <div id="form-outer">
          <p id="description">Create New Hackathon</p>
     <form id="hackathon-form"  onSubmit={handleSubmit} >
@@ -109,7 +112,7 @@ const HackathonForm = () => {
         <label id="name-label" for="name">*Name Of Hakathon: </label>
       </div>
       <div class="rightTab">
-        <input autofocus type="text" onChange={handleChange('nameOfHackathon')} name="name" id="name" class="input-field" placeholder="Enter Name Of Hakathon" required />
+        <input autofocus type="text" onChange={handleChange('nameOfHackathon')} value={nameOfHackathon} name="name" id="name" class="input-field" placeholder="Enter Name Of Hakathon" required />
       </div>
     </div>
     <div class="rowTab">
@@ -117,7 +120,7 @@ const HackathonForm = () => {
         <label for="comments">*About The Hackathon:</label>
       </div>
       <div class="rightTab">
-        <textarea id="comments" onChange={handleChange('aboutTheHackathon')} class="input-field" style={{height:"80px",resize:"vertical;"}} name="comment" placeholder="About The Hackathon (min 50 words)" required ></textarea>
+        <textarea id="comments" onChange={handleChange('aboutTheHackathon')} value={aboutTheHackathon}  class="input-field" style={{height:"80px",resize:"vertical;"}} name="comment" placeholder="About The Hackathon (min 50 words)" required ></textarea>
       </div>
     </div>
     <div class="rowTab">
@@ -125,7 +128,7 @@ const HackathonForm = () => {
         <label for="comments">*Problem Statement:</label>
       </div>
       <div class="rightTab">
-        <textarea id="comments" onChange={handleChange('problemStatement')} class="input-field" style={{height:"80px",resize:"vertical;"}} name="comment" placeholder="Problem Statement (min words 50)" required></textarea>
+        <textarea id="comments" onChange={handleChange('problemStatement')} value={problemStatement}  class="input-field" style={{height:"80px",resize:"vertical;"}} name="comment" placeholder="Problem Statement (min words 50)" required></textarea>
       </div>
     </div>
     <div class="rowTab">
@@ -133,7 +136,7 @@ const HackathonForm = () => {
         <label for="comments">*Instructions:</label>
       </div>
       <div class="rightTab">
-        <textarea id="comments" onChange={handleChange('instructions')} class="input-field" style={{height:"80px",resize:"vertical;"}} name="instructions" placeholder="Instructions " required></textarea>
+        <textarea id="comments" onChange={handleChange('instructions')} value={instructions}  class="input-field" style={{height:"80px",resize:"vertical;"}} name="instructions" placeholder="Instructions " required></textarea>
       </div>
     </div>
     <div class="rowTab">
@@ -141,7 +144,7 @@ const HackathonForm = () => {
         <label for="comments">*Rules:</label>
       </div>
       <div class="rightTab">
-        <textarea id="comments" onChange={handleChange('rules')} class="input-field" style={{height:"80px",resize:"vertical;"}} name="rules" placeholder="Rules" required></textarea>
+        <textarea id="comments" onChange={handleChange('rules')} value={rules}  class="input-field" style={{height:"80px",resize:"vertical;"}} name="rules" placeholder="Rules" required></textarea>
       </div>
     </div>
     <div class="rowTab">
@@ -149,7 +152,7 @@ const HackathonForm = () => {
         <label id="date-label" for="date">*Starting Date: </label>
       </div>
       <div class="rightTab">
-        <input type="date" onChange={handleChange('startDate')} name="date" id="date" class="input-field" required />
+        <input type="date" onChange={handleChange('startDate')} value={startDate}  name="date" id="date" class="input-field" required />
       </div>
     </div>
     <div class="rowTab">
@@ -157,7 +160,7 @@ const HackathonForm = () => {
         <label id="date-label" for="date">*End Date: </label>
       </div>
       <div class="rightTab">
-        <input type="date" name="date" onChange={handleChange('endDate')} id="date" class="input-field" required />
+        <input type="date" name="date" onChange={handleChange('endDate')} value={endDate}  id="date" class="input-field" required />
       </div>
     </div>
     <div class="rowTab">
@@ -165,7 +168,7 @@ const HackathonForm = () => {
         <label id="email-label" for="email">*Email: </label>
       </div>
       <div class="rightTab">
-        <input type="email" name="email" onChange={handleChange('email')} id="email" class="input-field" required placeholder="Enter your Email"/>
+        <input type="email" name="email" onChange={handleChange('email')} value={email}  id="email" class="input-field" required placeholder="Enter your Email"/>
       </div>
     </div>
     <div class="rowTab">
@@ -173,7 +176,7 @@ const HackathonForm = () => {
         <label id="label" for="email">*Team Size: </label>
       </div>
       <div class="rightTab">
-        <input type="number" onChange={handleChange('maxTeamSize')} name="number" id="number" class="input-field" required placeholder="Enter Team Size"/>
+        <input type="number" onChange={handleChange('maxTeamSize')} value={maxTeamSize}  name="number" id="number" class="input-field" required placeholder="Enter Team Size"/>
       </div>
     </div>
     <div class="rowTab">
@@ -181,7 +184,7 @@ const HackathonForm = () => {
         <label id="label" for="email">Judges: </label>
       </div>
       <div class="rightTab">
-        <input type="text" onChange={handleChange('Judges')} name="Judges" id="Judges" class="input-field"  placeholder="Ex:- John, andrew"/>
+        <input type="text" onChange={handleChange('Judges')} value={Judges}  name="Judges" id="Judges" class="input-field"  placeholder="Ex:- John, andrew"/>
       </div>
     </div>
     <div class="rowTab">
@@ -189,7 +192,7 @@ const HackathonForm = () => {
         <label id="label" for="email">Prizes: </label>
       </div>
       <div class="rightTab">
-        <input type="text" onChange={handleChange('prizes')} name="number" id="number" class="input-field"  placeholder="Ex:- T-shirt, Watches"/>
+        <input type="text" onChange={handleChange('prizes')} value={prizes}  name="number" id="number" class="input-field"  placeholder="Ex:- T-shirt, Watches"/>
       </div>
     </div>
     <div class="rowTab">
@@ -197,7 +200,7 @@ const HackathonForm = () => {
         <label id="label" for="email">Sponsors: </label>
       </div>
       <div class="rightTab">
-        <input type="text" onChange={handleChange('sponsors')} name="sponsors" id="sponsors" class="input-field"  placeholder="Ex:- Paytm, Google"/>
+        <input type="text" onChange={handleChange('sponsors')} value={sponsors}  name="sponsors" id="sponsors" class="input-field"  placeholder="Ex:- Paytm, Google"/>
       </div>
     </div>
     <div class="rowTab">
@@ -205,7 +208,7 @@ const HackathonForm = () => {
         <label id="label" for="email">Link: </label>
       </div>
       <div class="rightTab">
-        <input type="text" onChange={handleChange('links')} name="links" id="links" class="input-field"  placeholder="link of Hakathon"/>
+        <input type="text" onChange={handleChange('links')} value={links}  name="links" id="links" class="input-field"  placeholder="link of Hakathon"/>
       </div>
     </div>
     <div class="rowTab">
@@ -213,7 +216,7 @@ const HackathonForm = () => {
         <label id="label" for="email">*Location: </label>
       </div>
       <div class="rightTab">
-        <input type="text" onChange={handleChange('location')} name="location" id="location" class="input-field" required placeholder="Ex:- Noida "/>
+        <input type="text" onChange={handleChange('location')} value={location}  name="location" id="location" class="input-field" required placeholder="Ex:- Noida "/>
       </div>
     </div>
     <button className="submit" type="submit">{textChange}</button>
